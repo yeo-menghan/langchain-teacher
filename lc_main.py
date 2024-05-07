@@ -68,7 +68,7 @@ lesson_guides = {
 }
 
 # Initialize LangSmith client
-client = Client(LANGCHAIN_API_KEY)
+client = Client()
 
 # Lesson selection sidebar
 lesson_selection = st.sidebar.selectbox("Select Lesson", list(lesson_guides.keys()))
