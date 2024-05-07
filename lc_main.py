@@ -8,6 +8,13 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import LLMChain
 from get_prompt import load_prompt, load_prompt_with_questions
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
+
 st.set_page_config(page_title="LangChain: Getting Started Class", page_icon="🦜")
 st.title("🦜 LangChain: Getting Started Class")
 button_css = """.stButton>button {
@@ -61,7 +68,7 @@ lesson_guides = {
 }
 
 # Initialize LangSmith client
-client = Client()
+client = Client(LANGCHAIN_API_KEY)
 
 # Lesson selection sidebar
 lesson_selection = st.sidebar.selectbox("Select Lesson", list(lesson_guides.keys()))
